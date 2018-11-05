@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>Marin's Coding Challenge</title>
+</head>
+
+<style type="text/css">
+	*{
+		margin: 0; 
+		padding: 0;	
+	}
+	body{
+		background: #fff;
+	}
+	.nav{
+		width: 800px;
+		margin: 0 auto;
+	}
+	ul li{
+		list-style: none;
+		background: white;
+		line-height: 30px; 
+		width: 199px; 
+		text-align: center;
+		float: left; 
+		position: relative; 
+		border-left: 1px solid white;
+		border-bottom: 1px solid white;
+	}
+	ul li ul{
+		position: absolute;
+	}
+	ul li a{
+		color: white; 
+		background: black; 
+		width: 100%; 
+		height: 30px;
+		display: inline-block;
+		text-decoration: none;  
+	}
+	
+	ul li ul li a{
+		background:#c4df9b; 
+	}
+	ul li a:hover, li a:focus {
+		background:#598527;
+		font-weight: bold;
+	}
+	ul li ul{
+		display: none; 
+	}
+	.nav ul li:hover ul{
+		display: block; 	
+	}
+	.menu{
+		display: none; 
+		position: absolute;
+		cursor: pointer;
+		color: white; 
+		background: black;
+		padding-right: 6px;
+		padding-left: 6px; 
+		line-height: 30px; 
+		border-left: 1px solid white; 
+	}
+	
+	
+	@media screen and (max-width: 780px){
+		.nav{
+			width: 200px;
+			float: left;
+			
+		}
+		ul li{
+			width: 100%;
+			float: none;
+			background-color: skyblue;
+		}
+		ul li a{
+			width: 100;
+			display: block;
+		}
+		ul li ul{
+			position: static;
+		}
+		.menu{
+			left: 201px;
+			display: block; 
+		}
+		
+	}
+</style>
+
+<body>
+	<header>
+		<div class= "menu" id= "menu">Menu</div>
+	</header>
+	<nav class= "nav">
+		<ul>
+			<li><a href="#">Option 1</a>
+				<ul>
+					<li><a href="#">Sub-Option 1.1</a></li>
+					<li><a href="#">Sub-Option 1.2</a></li>
+					<li><a href="#">Sub-Option 1.3</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Option 2</a>
+				<ul>
+					<li><a href="#">Sub-Option 2.1</a></li>
+					<li><a href="#">Sub-Option 2.2</a></li>
+					<li><a href="#">Sub-Option 2.3</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Option 3</a>
+				<ul>
+					<li><a href="#">Sub-Option 3.1</a></li>
+					<li><a href="#">Sub-Option 3.2</a></li>
+					<li><a href="#">Sub-Option 3.3</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Option 4</a>
+				<ul>
+					<li><a href="#">Sub-Option 4.1</a></li>
+					<li><a href="#">Sub-Option 4.2</a></li>
+					<li><a href="#">Sub-Option 4.3</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</body>
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script tpe="text/javascript">
+	
+	function leftCorner() {
+		document.getElementById("menu").style.left = "0px";
+	}
+	function normalSpot() {
+		document.getElementById("menu").style.left = "201px";
+	}
+	var menu = false;
+	$(".menu").click(function(){
+		if(menu == true){
+			$(".nav").show();
+			menu = false;
+			$(".menu").onclick = normalSpot(); 
+		}else{
+			$(".nav").hide();
+			menu = true; 
+			$(".menu").onclick = leftCorner(); 
+		}
+	})
+</script>
